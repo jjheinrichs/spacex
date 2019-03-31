@@ -1,0 +1,48 @@
+// colors
+
+$brand-primary: #ff0;
+
+// borders
+$border-color-default: #333;
+
+// buttons
+$button-border-color: $border-color-default;
+$button-hover-color: $brand-primary;
+
+$button-padding-defalt: 15px;
+
+// colors
+$body-color: #fff;
+
+//grid
+$breakpoint-desktop: 1280px;
+
+$grid-gutter-full: 30px;
+$grid-gutter-half: $grid-gutter-full / 2;
+
+$offset-default: 20px;
+$offset-medium: $offset-default / 2;
+$offset-small: $offset-medium / 2;
+
+$site-header-height: 35px;
+
+// transitions
+$transition-default: 250ms;
+$transition-fast: $transition-default / 2;
+$transition-slow: 400ms;
+
+// typography
+$font-family-base: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-size-base: 16px;
+$font-weight-base: normal;
+$line-height-base: 1.4em;
+$font-color-base: #222;
+$font-color-link: #222;
+$font-color-header: #222;
+
+$font-size-h1: 68px;
+$font-size-h2: 54px;
+$font-size-h3: 40px;
+$font-size-h4: 26px;
+$font-size-h5: $font-size-base;
+$font-size-h6: $font-size-base;

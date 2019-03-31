@@ -1,0 +1,29 @@
+<a [attr.href]="href" class="spacex-launch" (click)="preventDefaultIfNoPresskit($event)" [ngClass]="{'spacex-launch-is-not-link' : !launch.presskit, 'spacex-launch-is-link' : launch.presskit}">
+    <h1 [attr.id]="'launch-'+'1'" class="sr-only">{{launch.mission_name}}</h1>
+
+    <article class="launch spacex-grid-flex" [attr.aria-labelledby]="'launch-'+'1'">
+        <spacex-launch-grid-number
+          class="spacex-grid-cell spacex-grid-cell-number"
+          [gridCellHeader]="'Flight Number'"
+          [gridCellNumber]="launch.flight_number">
+        </spacex-launch-grid-number>
+
+        <spacex-launch-grid-number
+          class="spacex-grid-cell spacex-grid-cell-number"
+          [gridCellHeader]="'Launch Year'"
+          [gridCellNumber]="launch.launch_year">
+        </spacex-launch-grid-number>
+
+        <spacex-launch-grid-title
+          class="spacex-grid-cell spacex-grid-cell-title"
+          [gridCellHeader]="'Rocket Name'"
+          [gridCellTitle]="launch.rocket_name">
+        </spacex-launch-grid-title>
+
+        <spacex-launch-grid-description
+          class="spacex-grid-cell spacex-grid-cell-description"
+          [gridCellHeader]="'Details'"
+          [gridCellDescription]="launch.details">
+        </spacex-launch-grid-description>
+    </article>
+</a>

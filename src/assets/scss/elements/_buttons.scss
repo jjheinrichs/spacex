@@ -1,0 +1,17 @@
+.spacex-button {
+    border: 1px solid $button-border-color;
+    background-color: $body-color;
+    cursor: pointer;
+    line-height: 1em;
+    padding: 8px 15px;
+    transition: background-color $transition-default ease-out, border-color $transition-default ease-out;
+
+    &:hover,
+    &:focus {
+      background-color: $button-hover-color;
+    }
+}
+
+.spacex-button-link {
+  border: none;
+}

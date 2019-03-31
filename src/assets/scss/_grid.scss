@@ -1,0 +1,16 @@
+.spacex-page-container {
+  width: $breakpoint-desktop;
+  margin: 0 auto;
+}
+
+.spacex-grid-flex {
+  display: flex;
+}
+
+.spacex-grid-flex-align-center {
+  align-items: center;
+}
+
+.spacex-flex-item-pull-right {
+  margin-left: auto;
+}

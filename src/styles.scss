@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import './assets/scss/variables';
+@import './assets/scss/grid';
+@import './assets/scss/typography';
+
+// elements
+@import './assets/scss/elements/buttons';
+@import './assets/scss/elements/sort';
+
+// components
+@import './assets/scss/components/launch';
+@import './assets/scss/components/launch-list';
+@import './assets/scss/components/pagination';
+@import './assets/scss/components/site-header';

@@ -1,0 +1,63 @@
+.spacex-pagination {
+  .spacex-button {
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+
+    &[disabled] {
+      border-color: lighten($border-color-default, 70%);
+      z-index: 1;
+
+      &:hover,
+      &:focus {
+        background-color: $body-color;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .spacex-button + .spacex-button {
+    margin-left: -1px;
+  }
+}
+
+.spacex-pagination--status {
+  margin: 0 $offset-default 0 0;
+}
+
+.spacex-button-prev,
+.spacex-button-next {
+  &::before {
+    border-color: transparent;
+    border-style: solid;
+    border-width: 6px;
+    content: '';
+    display: block;
+    height: 0;
+    transition: border-color $transition-default ease-out;
+    width: 0;
+  }
+}
+
+.spacex-button-prev{
+  &::before {
+    border-right-color: $font-color-base;
+    margin-left: -6px;
+  }
+
+  &[disabled]::before {
+    border-right-color: lighten($font-color-base, 40%);
+  }
+}
+
+
+.spacex-button-next{
+  &::before {
+    border-left-color: $font-color-base;
+    margin-right: -6px;
+  }
+
+  &[disabled]::before {
+    border-left-color: lighten($font-color-base, 40%);
+  }
+}

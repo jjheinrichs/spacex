@@ -1,0 +1,20 @@
+<header class="spacex-site-header">
+  <nav class="spacex-page-container spacex-grid-flex spacex-grid-flex-align-center">
+    <div class="spacex-sort-wrapper">
+      <spacex-sort
+        (setSort)="setSort($event)"
+        [sortOrder]="sortOrder">
+      </spacex-sort>
+    </div>
+
+    <spacex-pagination
+      class="spacex-flex-item-pull-right"
+      (setOffset)="setOffset($event)"
+      [pagination]="pagination">
+    </spacex-pagination>
+  </nav>
+</header>
+
+<div class="spacex-page-container">
+  <spacex-launch-list class="spacex-page-launch-list"></spacex-launch-list>
+</div>

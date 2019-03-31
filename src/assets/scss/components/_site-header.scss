@@ -1,0 +1,23 @@
+.spacex-site-header {
+  background-color: $body-color;
+  box-shadow: 0 0 5px rgba($border-color-default, .5);
+  height: $site-header-height;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+
+  .spacex-page-container {
+    padding: 0 $grid-gutter-half;
+    box-sizing: border-box;
+  }
+
+  .spacex-sort-wrapper {
+    box-sizing: border-box;
+    padding-right: $grid-gutter-half;
+    width: 20%;
+    text-align: right;
+  }
+}
+

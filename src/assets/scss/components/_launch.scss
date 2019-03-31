@@ -1,0 +1,54 @@
+.spacex-launch {
+  color: $font-color-base;
+  display: block;
+  text-decoration: none;
+  transition: background-color $transition-fast ease-out;
+  width: 100%;
+
+  &.spacex-launch-is-link:hover,
+  &.spacex-launch-is-link:focus {
+    background-color: $brand-primary;
+  }
+
+  &.spacex-launch-is-not-link {
+    cursor: not-allowed;
+  }
+}
+
+.spacex-grid-cell {
+  margin: $grid-gutter-full $grid-gutter-half;
+  position: relative;
+  flex-grow: 1;
+  width: 30%;
+}
+
+.spacex-grid-cell-number {
+  width: 20%;
+}
+
+.spacex-grid-cell--header {
+  border-bottom: 1px solid $border-color-default;
+  font-size: $font-size-base;
+  margin: 0;
+  position: absolute;
+  text-align: right;
+  text-transform: lowercase;
+  width: 100%;
+}
+
+.spacex-grid-cell-description .spacex-grid-cell--header {
+  text-align: left;
+}
+
+.spacex-grid-cell--number,
+.spacex-grid-cell--title {
+  font-weight: 200;
+  font-size: $font-size-h1;
+  line-height: $font-size-h1;
+  margin: $font-size-base 0 0 0;
+  text-align: right;
+}
+
+.spacex-grid-cell--description {
+  margin: 22px 0 0 0;
+}

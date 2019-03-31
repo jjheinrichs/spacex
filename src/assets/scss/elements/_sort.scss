@@ -1,0 +1,42 @@
+
+
+.spacex-sort {
+  position: relative;
+  padding-right: 25px;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    right: 8px;
+    width: 0;
+    height: 0;
+    border-width: 6px;
+    border-color: transparent;
+    border-style: solid;
+
+    transition: border-color $transition-default ease-out;
+  }
+
+  &::before {
+    top: 3px;
+    border-bottom-color: rgba($font-color-base, .3);
+  }
+
+  &::after {
+    bottom: 3px;
+    border-top-color: rgba($font-color-base, .3);
+  }
+
+  &.spacex-sort-asc {
+    &::before {
+      border-bottom-color: $font-color-base;
+    }
+  }
+
+  &.spacex-sort-desc {
+    &::after {
+      border-top-color: $font-color-base;
+    }
+  }
+}

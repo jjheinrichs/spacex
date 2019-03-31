@@ -1,0 +1,19 @@
+<nav class="spacex-pagination spacex-grid-flex spacex-grid-flex-align-center">
+  <p class="spacex-pagination--status">Page {{currentPage}} of {{totalPages}}</p>
+
+  <button
+    aria-label="Previous Page"
+    class="spacex-button spacex-button-prev"
+    [disabled]="currentPage === 1"
+    (click)="handlePreviousClick()"
+    type="button">
+  </button>
+
+  <button
+    aria-label="Next Page"
+    class="spacex-button spacex-button-next"
+    [disabled]="currentPage === totalPages"
+    (click)="handleNextClick()"
+    type="button">
+  </button>
+</nav>
