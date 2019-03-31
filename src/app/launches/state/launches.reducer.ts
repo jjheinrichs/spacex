@@ -75,12 +75,19 @@ export function reducer(
       return state;
     }
   case LaunchesActionTypes.GetLaunches :
-    return state;
-  case LaunchesActionTypes.GetLaunchesSuccess :
-    // sort=flight_number&order=desc&offset=10&limit=10
-    // queryResults.headers.get('spacex-api-count');
     return {
       ...state,
+      loading: true,
+      launches: [],
+      error: '',
+      params: {
+        ...state.params
+      },
+    };
+  case LaunchesActionTypes.GetLaunchesSuccess :
+    return {
+      ...state,
+      loading: false,
       count : parseInt(action.payload.headers.get('spacex-api-count'), 10),
       launches : action.payload.body.map((launch) => {
         return {
@@ -94,7 +101,15 @@ export function reducer(
       })
     };
   case LaunchesActionTypes.GetLaunchesError :
-    return state;
+    return {
+      ...state,
+      loading: false,
+      error: action.payload,
+      launches: [],
+      params: {
+        ...state.params
+      }
+    };
   default :
     return state;
   }
@@ -123,6 +138,11 @@ const getLaunchesState = createFeatureSelector<LaunchesState>('launches');
 export const getLoading = createSelector(
   getLaunchesState,
   loading
+);
+
+export const getError = createSelector(
+  getLaunchesState,
+  error
 );
 
 export const getParams = createSelector(

@@ -16,6 +16,9 @@ describe('SortComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SortComponent);
     component = fixture.componentInstance;
+
+    component.sortOrder = 'asc';
+
     fixture.detectChanges();
   });
 

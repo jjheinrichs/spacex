@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { ROUTER_NAVIGATION } from '@ngrx/router-store';
-import { Action, Store, select } from '@ngrx/store';
+import { Action, Store, select, State } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 
 import {
   map,
   switchMap,
-  catchError
+  catchError,
+  withLatestFrom
 } from 'rxjs/operators';
 
 import * as launches from './launches.actions';
@@ -24,34 +25,41 @@ export class LaunchesEffects {
   ) {}
 
   @Effect()
+  getLaunches$: Observable<Action>
+    = this
+        .actions$
+        .pipe(
+          ofType<launches.GetLaunches>(launches.LaunchesActionTypes.GetLaunches),
+          map(action => action.payload),
+          withLatestFrom(this.store),
+          switchMap(state => {
+            const launchesState = state[1].launches as any;
+
+            return this
+              .launchesService
+              .getLaunches(launchesState.params)
+              .pipe(
+                map((queryResults) => {
+                  return new launches.GetLaunchesSuccess(queryResults);
+                }),
+                catchError(error => of(new launches.GetLaunchesError(error.statusText)))
+              );
+          })
+        );
+
+  @Effect()
   routeToLaunches$: Observable<{}>
     = this
         .actions$
         .pipe(
           ofType<launches.GetLaunches>(ROUTER_NAVIGATION),
-          map(action => action),
-          switchMap(action => {
+          map(action => {
             const routeQueryParams = {...action.payload.routerState.root.queryParams};
 
             this.store.dispatch(new launches.SetOrder(routeQueryParams.order));
             this.store.dispatch(new launches.SetOffset(parseInt(routeQueryParams.offset, 10)));
 
-            return this
-              .store
-              .pipe(
-                select(fromLaunches.getParams),
-                switchMap((queryParams) => {
-                  return this
-                    .launchesService
-                    .getLaunches(queryParams)
-                    .pipe(
-                      map((queryResults) => {
-                        return new launches.GetLaunchesSuccess(queryResults);
-                      }),
-                      catchError(error => of(new launches.GetLaunchesError(error)))
-                    );
-                })
-              );
+            return new launches.GetLaunches(true);
           })
       );
 }

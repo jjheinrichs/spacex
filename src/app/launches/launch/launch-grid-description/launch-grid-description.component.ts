@@ -1,16 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'spacex-launch-grid-description',
   templateUrl: './launch-grid-description.component.html'
 })
-export class LaunchGridDescriptionComponent implements OnInit {
+export class LaunchGridDescriptionComponent {
   @Input() gridCellHeader: string;
-  @Input() gridCellDescription: number;
+  @Input() gridCellDescription: string;
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }

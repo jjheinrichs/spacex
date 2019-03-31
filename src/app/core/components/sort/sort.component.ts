@@ -18,7 +18,7 @@ export class SortComponent implements OnChanges {
     this.sortIndex = this.sortKeys.findIndex(key => key === changes.sortOrder.currentValue);
   }
 
-  toggleSort() {
+  toggleSort($event) {
     this.sortIndex = (this.sortIndex + 1) % this.sortKeys.length;
     this.setSort.emit(sort[this.sortKeys[this.sortIndex]]);
   }

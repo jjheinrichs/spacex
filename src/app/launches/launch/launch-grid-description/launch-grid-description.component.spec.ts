@@ -16,6 +16,10 @@ describe('LaunchGridDescriptionComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LaunchGridDescriptionComponent);
     component = fixture.componentInstance;
+
+    component.gridCellHeader = '';
+    component.gridCellDescription = '';
+
     fixture.detectChanges();
   });
 

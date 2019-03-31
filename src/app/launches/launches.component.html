@@ -13,8 +13,17 @@
       [pagination]="pagination">
     </spacex-pagination>
   </nav>
+
+  <div
+    class="spacex-loading"
+    [class.is-loading]="isLoading"></div>
 </header>
 
-<div class="spacex-page-container">
+<main class="spacex-page-container">
   <spacex-launch-list class="spacex-page-launch-list"></spacex-launch-list>
-</div>
+  <div class="spacex-page-error" *ngIf="error">
+    <h1>Error!</h1>
+
+    <p>{{error}}</p>
+  </div>
+</main>

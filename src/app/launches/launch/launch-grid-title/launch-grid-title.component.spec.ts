@@ -16,6 +16,10 @@ describe('LaunchGridTitleComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LaunchGridTitleComponent);
     component = fixture.componentInstance;
+
+    component.gridCellHeader = '';
+    component.gridCellTitle = '';
+
     fixture.detectChanges();
   });
 

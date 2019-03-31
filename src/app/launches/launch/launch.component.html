@@ -1,4 +1,9 @@
-<a [attr.href]="href" class="spacex-launch" (click)="preventDefaultIfNoPresskit($event)" [ngClass]="{'spacex-launch-is-not-link' : !launch.presskit, 'spacex-launch-is-link' : launch.presskit}">
+<a
+  [attr.href]="href"
+  class="spacex-launch"
+  (click)="preventDefaultIfNoPresskit($event)"
+  [ngClass]="{'spacex-launch-is-not-link' : !launch.presskit, 'spacex-launch-is-link' : launch.presskit}">
+
     <h1 [attr.id]="'launch-'+'1'" class="sr-only">{{launch.mission_name}}</h1>
 
     <article class="launch spacex-grid-flex" [attr.aria-labelledby]="'launch-'+'1'">

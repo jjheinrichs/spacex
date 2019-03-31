@@ -16,6 +16,13 @@ describe('PaginationComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PaginationComponent);
     component = fixture.componentInstance;
+
+    component.pagination = {
+      limit: 10,
+      offset: 0,
+      count: 90
+    };
+
     fixture.detectChanges();
   });
 

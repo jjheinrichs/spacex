@@ -56,20 +56,5 @@ describe('Launches reducer', () => {
       const nextState = reducer(originalState, setStartAction);
       expect(nextState.params.offset).toEqual(offset);
     });
-
-    it('should not set offset if invalid number', () => {
-      const offset = '10';
-
-      const noopAction = { type: 'NOOP' } as any;
-      // @ts-ignore:
-      const setStartAction = new launches.SetOffset(offset);
-
-      const originalState = reducer(undefined, noopAction);
-      expect(originalState).toEqual(initialState);
-
-      const nextState = reducer(originalState, setStartAction);
-      expect(nextState.params.offset).not.toEqual(offset);
-      expect(nextState.params.offset).toEqual(originalState.params.offset);
-    });
   });
 });
