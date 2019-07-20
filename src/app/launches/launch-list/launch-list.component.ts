@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { select, Store } from '@ngrx/store';
@@ -7,7 +7,8 @@ import { Launch } from '../models/launch';
 
 @Component({
   selector: 'spacex-launch-list',
-  templateUrl: './launch-list.component.html'
+  templateUrl: './launch-list.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LaunchListComponent implements OnInit {
   launches$: Observable<any>;
