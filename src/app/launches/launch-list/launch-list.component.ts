@@ -13,13 +13,13 @@ import { Launch } from '../models/launch';
 export class LaunchListComponent implements OnInit {
   launches$: Observable<any>;
 
-  constructor( private store: Store<fromLaunches.LaunchesState> ) { }
+  constructor(private store: Store<fromLaunches.LaunchesState>) {}
 
   ngOnInit() {
     this.launches$ = this.store.pipe(select(fromLaunches.getLaunches));
   }
 
-  trackByFlightNumber(index, launch: Launch): number {
+  trackByFlightNumber(index: number, launch: Launch): number {
     return launch.flight_number;
   }
 }

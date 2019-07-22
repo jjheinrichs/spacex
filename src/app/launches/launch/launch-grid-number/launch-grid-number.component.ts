@@ -8,5 +8,5 @@ export class LaunchGridNumberComponent {
   @Input() gridCellHeader: string;
   @Input() gridCellNumber: number;
 
-  constructor() { }
+  constructor() {}
 }

@@ -5,16 +5,8 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { SortComponent } from './sort/sort.component';
 
 @NgModule({
-  declarations: [
-    PaginationComponent,
-    SortComponent
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    PaginationComponent,
-    SortComponent
-  ]
+  declarations: [PaginationComponent, SortComponent],
+  imports: [CommonModule],
+  exports: [PaginationComponent, SortComponent]
 })
-export class CoreComponentsModule { }
+export class CoreComponentsModule {}

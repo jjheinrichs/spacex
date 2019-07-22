@@ -23,22 +23,20 @@ export class LaunchesComponent implements OnInit, OnDestroy {
     private store: Store<fromLaunches.LaunchesState>,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this
-      .store
+    this.store
       .pipe(
         select(fromLaunches.getSortOrder),
         takeUntil(this.destroy$)
       )
-      .subscribe((sortOrder) => {
+      .subscribe(sortOrder => {
         this.sortOrder = sortOrder;
         this.setScrolltop();
       });
 
-    this
-      .store
+    this.store
       .pipe(
         select(fromLaunches.getPagination),
         takeUntil(this.destroy$)
@@ -48,8 +46,7 @@ export class LaunchesComponent implements OnInit, OnDestroy {
         this.setScrolltop();
       });
 
-    this
-      .store
+    this.store
       .pipe(
         select(fromLaunches.getLoading),
         takeUntil(this.destroy$)
@@ -58,8 +55,7 @@ export class LaunchesComponent implements OnInit, OnDestroy {
         this.isLoading = isLoading;
       });
 
-    this
-      .store
+    this.store
       .pipe(
         select(fromLaunches.getError),
         takeUntil(this.destroy$)
@@ -78,28 +74,24 @@ export class LaunchesComponent implements OnInit, OnDestroy {
     this.destroy$.next();
   }
 
-  setSort($event) {
+  setSort($event: string) {
     this.updateRoute({
       order: $event,
       offset: 0
     });
   }
 
-  setOffset($event) {
+  setOffset($event: number) {
     this.updateRoute({
       offset: $event
     });
   }
 
-  updateRoute(queryParams) {
-    this.router.navigate(
-      [],
-      {
-        queryParams,
-        queryParamsHandling: 'merge',
-        relativeTo: this.activatedRoute
-      }
-    );
-
+  updateRoute(queryParams: any) {
+    this.router.navigate([], {
+      queryParams,
+      queryParamsHandling: 'merge',
+      relativeTo: this.activatedRoute
+    });
   }
 }

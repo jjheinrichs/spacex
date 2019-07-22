@@ -1,7 +1,4 @@
-import {
-  LaunchesActionTypes,
-  LaunchesActions
-} from './launches.actions';
+import { LaunchesActionTypes, LaunchesActions } from './launches.actions';
 
 import { Launch } from '../models/launch';
 import { sort } from '@app/core/components/sort/sort';
@@ -37,11 +34,11 @@ export const initialState: LaunchesState = {
   }
 };
 
-function orderParamIsValid(order) {
+function orderParamIsValid(order: string): boolean {
   return sort[order] !== undefined;
 }
 
-function offsetParamIsValid(offset) {
+function offsetParamIsValid(offset: any) {
   return Number.isInteger(offset) && offset >= 0;
 }
 
@@ -50,68 +47,70 @@ export function reducer(
   action: LaunchesActions
 ): LaunchesState {
   switch (action.type) {
-  case LaunchesActionTypes.SetOrder :
-    if (orderParamIsValid(action.payload)) {
-      return {
-        ...state,
-        params: {
-          ...state.params,
-          order : action.payload
-        }
-      };
-    } else {
-      return state;
-    }
-  case LaunchesActionTypes.SetOffset :
-    if (offsetParamIsValid(action.payload)) {
-      return {
-        ...state,
-        params: {
-          ...state.params,
-          offset : action.payload
-        }
-      };
-    } else {
-      return state;
-    }
-  case LaunchesActionTypes.GetLaunches :
-    return {
-      ...state,
-      loading: true,
-      launches: [],
-      error: '',
-      params: {
-        ...state.params
-      },
-    };
-  case LaunchesActionTypes.GetLaunchesSuccess :
-    return {
-      ...state,
-      loading: false,
-      count : parseInt(action.payload.headers.get('spacex-api-count'), 10),
-      launches : action.payload.body.map((launch) => {
+    case LaunchesActionTypes.SetOrder:
+      if (orderParamIsValid(action.payload)) {
         return {
-          mission_name: launch.mission_name,
-          flight_number: parseInt(launch.flight_number, 10),
-          launch_year: parseInt(launch.launch_year, 10),
-          rocket_name: launch.rocket.rocket_name,
-          details: launch.details,
-          presskit: launch.links.presskit
+          ...state,
+          params: {
+            ...state.params,
+            order: action.payload
+          }
         };
-      })
-    };
-  case LaunchesActionTypes.GetLaunchesError :
-    return {
-      ...state,
-      loading: false,
-      error: action.payload,
-      launches: [],
-      params: {
-        ...state.params
+      } else {
+        return state;
       }
-    };
-  default :
-    return state;
+    case LaunchesActionTypes.SetOffset:
+      if (offsetParamIsValid(action.payload)) {
+        return {
+          ...state,
+          params: {
+            ...state.params,
+            offset: action.payload
+          }
+        };
+      } else {
+        return state;
+      }
+    case LaunchesActionTypes.GetLaunches:
+      return {
+        ...state,
+        loading: true,
+        launches: [],
+        error: '',
+        params: {
+          ...state.params
+        }
+      };
+    case LaunchesActionTypes.GetLaunchesSuccess:
+      return {
+        ...state,
+        loading: false,
+        count: parseInt(action.payload.headers.get('spacex-api-count'), 10),
+        launches: action.payload.body.map(
+          (launch: any): Launch => {
+            return {
+              mission_name: launch.mission_name,
+              flight_number: parseInt(launch.flight_number, 10),
+              launch_year: parseInt(launch.launch_year, 10),
+              rocket_name: launch.rocket.rocket_name,
+              details: launch.details,
+              presskit: launch.links.presskit
+            };
+          }
+        )
+      };
+    case LaunchesActionTypes.GetLaunchesError:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+        launches: [],
+        params: {
+          ...state.params
+        }
+      };
+    default:
+      return state;
   }
 }
 

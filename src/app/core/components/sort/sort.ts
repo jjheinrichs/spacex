@@ -1,4 +1,4 @@
-export const sort = {
-    asc : 'asc',
-    desc : 'desc'
+export const sort: { [index: string]: string } = {
+  asc: 'asc',
+  desc: 'desc'
 };

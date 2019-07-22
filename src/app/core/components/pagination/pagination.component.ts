@@ -1,4 +1,11 @@
-import { Component, Input, EventEmitter, Output, OnChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  EventEmitter,
+  Output,
+  OnChanges,
+  SimpleChanges
+} from '@angular/core';
 
 import { Pagination } from './pagination';
 
@@ -14,14 +21,17 @@ export class PaginationComponent implements OnChanges {
   currentPage: number;
   limit: number;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnChanges(changes) {
+  ngOnChanges(changes: SimpleChanges) {
     const pagination = changes.pagination.currentValue;
     this.limit = pagination.limit;
 
     this.totalPages = Math.ceil(pagination.count / pagination.limit);
-    this.currentPage = Math.min(Math.floor(pagination.offset / pagination.limit) + 1, this.totalPages);
+    this.currentPage = Math.min(
+      Math.floor(pagination.offset / pagination.limit) + 1,
+      this.totalPages
+    );
   }
 
   handleNextClick() {

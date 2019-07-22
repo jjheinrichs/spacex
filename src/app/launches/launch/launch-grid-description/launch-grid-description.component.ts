@@ -8,5 +8,5 @@ export class LaunchGridDescriptionComponent {
   @Input() gridCellHeader: string;
   @Input() gridCellDescription: string;
 
-  constructor() { }
+  constructor() {}
 }

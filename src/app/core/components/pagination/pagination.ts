@@ -1,5 +1,4 @@
-/* tslint:disable:variable-name */
-export class Pagination {
+export interface Pagination {
   offset: number;
   count: number;
   limit: number;

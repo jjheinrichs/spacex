@@ -1,4 +1,11 @@
-import { Component, Output, EventEmitter, OnChanges, Input } from '@angular/core';
+import {
+  Component,
+  Output,
+  EventEmitter,
+  OnChanges,
+  Input,
+  SimpleChanges
+} from '@angular/core';
 import { sort } from './sort';
 
 @Component({
@@ -12,13 +19,15 @@ export class SortComponent implements OnChanges {
   sortIndex: number;
   sortKeys = Object.keys(sort);
 
-  constructor() { }
+  constructor() {}
 
-  ngOnChanges(changes) {
-    this.sortIndex = this.sortKeys.findIndex(key => key === changes.sortOrder.currentValue);
+  ngOnChanges(changes: SimpleChanges) {
+    this.sortIndex = this.sortKeys.findIndex(
+      key => key === changes.sortOrder.currentValue
+    );
   }
 
-  toggleSort($event) {
+  toggleSort() {
     this.sortIndex = (this.sortIndex + 1) % this.sortKeys.length;
     this.setSort.emit(sort[this.sortKeys[this.sortIndex]]);
   }

@@ -9,18 +9,16 @@ import { environment } from '@environments/environment';
 export class LaunchesService {
   apiEndpoint = '/launches';
 
-  constructor(private http: HttpClient) {  }
+  constructor(private http: HttpClient) {}
 
-  getLaunches(getParams) {
+  getLaunches(getParams: any) {
     const params = new HttpParams({
       fromObject: getParams
     });
 
-    return this.http.get(
-      `${environment.spacexapi}${this.apiEndpoint}`,
-      {
-        params,
-        observe : 'response'
-      });
+    return this.http.get(`${environment.spacexapi}${this.apiEndpoint}`, {
+      params,
+      observe: 'response'
+    });
   }
 }

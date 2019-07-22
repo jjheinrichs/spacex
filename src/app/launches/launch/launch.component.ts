@@ -9,9 +9,9 @@ import { Launch } from '../models/launch';
 export class LaunchComponent {
   @Input() launch: Launch;
 
-  constructor() { }
+  constructor() {}
 
-  preventDefaultIfNoPresskit($event) {
+  preventDefaultIfNoPresskit($event: any) {
     if (!this.launch.presskit) {
       $event.preventDefault();
     }
