@@ -3,13 +3,13 @@ import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { LaunchComponent } from './launch.component';
 
-@Component({selector: 'spacex-launch-grid-number', template: ''})
+@Component({ selector: 'spacex-launch-grid-number', template: '' })
 class LaunchGridNumberStubComponent {}
 
-@Component({selector: 'spacex-launch-grid-title', template: ''})
+@Component({ selector: 'spacex-launch-grid-title', template: '' })
 class LaunchGridTitleStubComponent {}
 
-@Component({selector: 'spacex-launch-grid-description', template: ''})
+@Component({ selector: 'spacex-launch-grid-description', template: '' })
 class LaunchGridDescriptionStubComponent {}
 
 describe('LaunchComponent', () => {
@@ -17,12 +17,12 @@ describe('LaunchComponent', () => {
   let fixture: ComponentFixture<LaunchComponent>;
 
   const expectedLaunch = {
-    mission_name : 'mission name',
-    flight_number : 1,
-    launch_year : 1996,
-    rocket_name : 'rocket',
-    details : 'rocket fly high',
-    presskit : 'https://www.spacex.com',
+    mission_name: 'mission name',
+    flight_number: 1,
+    launch_year: 1996,
+    rocket_name: 'rocket',
+    details: 'rocket fly high',
+    presskit: 'https://www.spacex.com'
   };
 
   beforeEach(async(() => {
@@ -33,9 +33,8 @@ describe('LaunchComponent', () => {
         LaunchGridTitleStubComponent,
         LaunchGridDescriptionStubComponent
       ],
-      schemas : [NO_ERRORS_SCHEMA]
-    })
-    .compileComponents();
+      schemas: [NO_ERRORS_SCHEMA]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

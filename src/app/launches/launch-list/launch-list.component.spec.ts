@@ -8,7 +8,7 @@ import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of } from 'rxjs';
 
-@Component({selector: 'spacex-launch', template: ''})
+@Component({ selector: 'spacex-launch', template: '' })
 class LaunchStubComponent {}
 
 describe('LaunchListComponent', () => {
@@ -21,14 +21,13 @@ describe('LaunchListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LaunchListComponent, LaunchStubComponent ],
-      schemas : [NO_ERRORS_SCHEMA],
+      declarations: [LaunchListComponent, LaunchStubComponent],
+      schemas: [NO_ERRORS_SCHEMA],
       providers: [
         provideMockStore({ initialState }),
-        provideMockActions(() => actions$),
+        provideMockActions(() => actions$)
       ]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     store = TestBed.get(Store);
     actions$ = of();

@@ -8,9 +8,8 @@ describe('LaunchGridTitleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LaunchGridTitleComponent ]
-    })
-    .compileComponents();
+      declarations: [LaunchGridTitleComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

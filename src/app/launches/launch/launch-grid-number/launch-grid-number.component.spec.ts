@@ -8,9 +8,8 @@ describe('LaunchGridNumberComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LaunchGridNumberComponent ]
-    })
-    .compileComponents();
+      declarations: [LaunchGridNumberComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

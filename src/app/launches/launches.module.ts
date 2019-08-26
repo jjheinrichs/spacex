@@ -35,6 +35,6 @@ import { reducer } from './state/launches.reducer';
     StoreModule.forFeature('launches', reducer),
     LaunchesRoutingModule
   ],
-  providers: [ LaunchesService ]
+  providers: [LaunchesService]
 })
-export class LaunchesModule { }
+export class LaunchesModule {}

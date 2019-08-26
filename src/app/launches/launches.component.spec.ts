@@ -10,13 +10,13 @@ import { Observable, of } from 'rxjs';
 import { LaunchesEffects } from './state/launches.effects';
 import { provideMockActions } from '@ngrx/effects/testing';
 
-@Component({selector: 'spacex-sort', template: ''})
+@Component({ selector: 'spacex-sort', template: '' })
 class SortStubComponent {}
 
-@Component({selector: 'spacex-pagination', template: ''})
+@Component({ selector: 'spacex-pagination', template: '' })
 class PaginationStubComponent {}
 
-@Component({selector: 'spacex-launch-list', template: ''})
+@Component({ selector: 'spacex-launch-list', template: '' })
 class LaunchListStubComponent {}
 
 describe('LaunchesComponent', () => {
@@ -37,15 +37,13 @@ describe('LaunchesComponent', () => {
         PaginationStubComponent,
         LaunchListStubComponent
       ],
-      schemas : [NO_ERRORS_SCHEMA],
+      schemas: [NO_ERRORS_SCHEMA],
       providers: [
         LaunchesEffects,
         provideMockStore({ initialState }),
         provideMockActions(() => actions$)
       ]
-
-    })
-    .compileComponents();
+    }).compileComponents();
 
     actions$ = of();
     store = TestBed.get(Store);

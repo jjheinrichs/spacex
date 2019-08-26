@@ -24,12 +24,12 @@ describe('LaunchesService', () => {
 
     const expectedLaunches: Launch[] = [
       {
-        mission_name : 'mission',
-        flight_number : 1,
-        launch_year : 2000,
-        rocket_name : 'rocket',
-        details : 'rocket fly high',
-        presskit : 'https://www.spacex.com'
+        mission_name: 'mission',
+        flight_number: 1,
+        launch_year: 2000,
+        rocket_name: 'rocket',
+        details: 'rocket fly high',
+        presskit: 'https://www.spacex.com'
       }
     ];
 
@@ -37,10 +37,7 @@ describe('LaunchesService', () => {
 
     launchesService
       .getLaunches(params)
-      .subscribe(
-        launches => expect(launches).toBeTruthy(),
-        fail
-      );
+      .subscribe(launches => expect(launches).toBeTruthy(), fail);
     expect(httpClientSpy.get.calls.count()).toBe(1, 'one call');
   });
 });

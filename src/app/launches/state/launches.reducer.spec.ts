@@ -1,8 +1,5 @@
 import * as launches from './launches.actions';
-import {
-  initialState,
-  reducer
-} from './launches.reducer';
+import { initialState, reducer } from './launches.reducer';
 
 describe('Launches reducer', () => {
   describe('initial state', () => {

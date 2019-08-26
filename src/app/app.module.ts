@@ -16,15 +16,16 @@ import { LaunchesModule } from './launches/launches.module';
 import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     LaunchesModule,
     BrowserModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    }),
     StoreRouterConnectingModule.forRoot(),
     AppRoutingModule,
     EffectsModule.forRoot([])
@@ -32,4 +33,4 @@ import { EffectsModule } from '@ngrx/effects';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
